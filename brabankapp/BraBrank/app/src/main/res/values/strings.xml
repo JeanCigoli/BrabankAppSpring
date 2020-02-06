@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">BraBrank</string>
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
+    <string name="app_valores">t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.</string>
+    <string name="app_empresa">A Brabank é uma empresa startup brasileira no segmento de serviços financeiros digitais. Criada em 2019 por um grupo de alunos formandos do Senai Jandira já alcança um grande mercado e vem crescendo esponencialmente sua carteira de clientes a cada dia.</string>
+    <string name="btn_menu_salvar">Salvar</string>
+    <string name="btnMenuAjuda">Ajuda</string>
+
+    <string-array name="listaDialog">
+        <item>Editar</item>
+        <item>Excluir</item>
+    </string-array>
+</resources>

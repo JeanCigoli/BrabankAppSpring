@@ -1,0 +1,106 @@
+package br.com.senai.jeancigoli.brabankapi.resources;
+
+import java.net.URI;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import br.com.senai.jeancigoli.brabankapi.domain.Categoria;
+import br.com.senai.jeancigoli.brabankapi.repository.CategoriaRepository;
+import br.com.senai.jeancigoli.brabankapi.services.CategoriasService;
+import br.com.senai.jeancigoli.brabankapi.services.exceptions.CategoriaNaoEncontradaException;
+
+
+/*
+ 	O categoria service precisa ser bean
+	Informa que aqui é a controller, processa e devolve a resposta 
+*/
+
+@RestController
+/* Serve para informar que quando estiver '/categorias' será rodado este método */
+@RequestMapping("/categorias")
+public class CategoriaResource {
+	
+	/* 
+	 	Verifica se esta classe está instaciada, senão instancia ela;
+	 	Isso é chamado de injeção de dependencia
+	*/
+	@Autowired
+	CategoriasService categoriaService;
+
+	/* Esse método será só para quando chamar "/categorias" */
+	@GetMapping
+	public List<Categoria> selectAllCategoria() {
+		
+		return categoriaService.listAll();
+	
+	}
+	
+	/* Isso é uma criação de um subrecurso, dentro de categorias, trazendo o id */
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Categoria> selectByIdCategoria(@PathVariable("id") Long codigo) {
+		
+		Categoria categoria = categoriaService.listById(codigo);
+		return ResponseEntity.ok(categoria);
+		
+	}
+	
+	/* ----------------------- POST ------------------  */
+	
+	/* 
+	 	Método para inserir um usuário 
+	 	@PostMapping -> Mapeando que será post esse método 
+	 	@RequestBody -> Serve para falar que o categorias vai receber o body da requisição 
+	*/
+	@PostMapping
+	public ResponseEntity<Void> insertUser(@RequestBody Categoria categoria) {
+		
+		categoria = categoriaService.insert(categoria);
+		
+		// Criar um URI com o location do dado salvo
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(categoria.id).toUri();
+		
+		return ResponseEntity.created(uri).build();
+		
+	}
+	
+	
+	/* ----------------------- PUT ------------------  */
+	
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Void> updateUser(@PathVariable("id") Long id, @RequestBody Categoria categoria) {
+		
+		categoria.id = id;
+		categoriaService.edit(categoria);
+		
+		return ResponseEntity.ok().build();
+		
+	}
+	
+	
+	/* ----------------------- DELETE ------------------  */
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {	
+			
+		categoriaService.deletar(id);
+		return ResponseEntity.noContent().build();
+		
+	}
+	
+
+}

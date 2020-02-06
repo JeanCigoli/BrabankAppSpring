@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@color/colorPrimaryDark"
+    android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/user" />
+
+    <TextView
+        android:id="@+id/NomeUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:paddingTop="16dp"
+        android:text="Olá, Usuário"
+        android:textSize="24dp" />
+
+</LinearLayout>

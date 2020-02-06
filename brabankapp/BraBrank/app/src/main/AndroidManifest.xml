@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.cursoandroid.brabrank">
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:usesCleartextTraffic="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".activity.NovoUsuarioActivity"
+            android:parentActivityName=".activity.LoginActivity"
+            android:launchMode="singleTop"/>
+
+        <activity android:name=".activity.HomeActivity"/>
+
+        <activity android:name=".activity.CategoriasActivity"
+            android:parentActivityName=".activity.HomeActivity">
+
+        </activity>
+
+        <activity android:name=".activity.NovoLancamentoActivity"
+            android:parentActivityName=".activity.HomeActivity"/>
+
+        <activity android:name=".activity.InformacoesActivity"
+            android:parentActivityName=".activity.HomeActivity"/>
+
+
+    </application>
+
+</manifest>

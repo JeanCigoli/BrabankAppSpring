@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/novoLancamentoLaouyt">
+
+    <include layout="@layout/toolbar"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.NovoLancamentoActivity"
+        android:padding="8dp">
+
+        <RadioGroup
+            android:id="@+id/rdGroupNovo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/rdDespesaNovo"
+                android:layout_width="149dp"
+                android:layout_height="wrap_content"
+                android:text="Despesa"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/rdReceitaNovo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Receita"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/rdGroupNovo"
+            android:layout_marginTop="10dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/edtDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@android:color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/txtDescricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição:"
+                android:inputType="text"
+                android:textColorLink="@color/colorPrimary"
+                android:textSize="18sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/edtValor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtDescricao"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@android:color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/txtValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Valor:"
+                android:inputType="numberDecimal"
+                android:textColorLink="@color/colorPrimary"
+                android:textSize="18sp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/edtDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtValor"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@android:color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/txtDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="DD/MM/AAAA:"
+                android:inputType="date"
+                android:textColorLink="@color/colorPrimary"
+                android:textSize="18sp" />
+
+        </android.support.design.widget.TextInputLayout>
+    </RelativeLayout>
+</LinearLayout>

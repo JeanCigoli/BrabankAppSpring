@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Gastos">
+        <menu>
+            <item
+                android:id="@+id/novoLancamento"
+                android:title="Novo Lançamento"
+                android:icon="@android:drawable/ic_menu_add"/>
+
+            <item
+                android:id="@+id/lancamentos"
+                android:title="Lançamentos"
+                android:icon="@drawable/ic_lancamento"/>
+
+            <item
+                android:id="@+id/categorias"
+                android:title="Categorias"
+                android:icon="@android:drawable/ic_menu_sort_by_size"/>
+        </menu>
+    </item>
+
+    <item android:title="BraBank">
+        <menu>
+            <item
+                android:id="@+id/informacao"
+                android:title="Informações"
+                android:icon="@android:drawable/ic_menu_info_details"/>
+
+            <item
+                android:id="@+id/ajuda"
+                android:title="Ajuda"
+                android:icon="@android:drawable/ic_menu_help"/>
+        </menu>
+    </item>
+
+    <item android:title="Perfil">
+        <menu>
+            <item
+                android:id="@+id/perfil"
+                android:title="MeuPerfil"
+                android:icon="@android:drawable/ic_menu_edit"/>
+
+            <item
+                android:id="@+id/sair"
+                android:title="Sair"
+                android:icon="@android:drawable/ic_menu_close_clear_cancel"/>
+        </menu>
+    </item>
+
+</menu>
